@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
+using UnityEngine;
 
 public class MoveToTargetAgent : Agent
 {
@@ -17,8 +15,8 @@ public class MoveToTargetAgent : Agent
 
     public override void OnEpisodeBegin()
     {
-        transform.localPosition = new Vector3(Random.Range(-3.5f, -1.5f), Random.Range(-3.5f, 3.5f));
-        target.localPosition = new Vector3(Random.Range(1.5f, 3.5f), Random.Range(-3.5f, 3.5f));
+        transform.localPosition += new Vector3(Random.Range(-3.5f, -1.5f), Random.Range(-3.5f, 3.5f));
+        target.localPosition += new Vector3(Random.Range(1.5f, 3.5f), Random.Range(-3.5f, 3.5f));
 
         env.localRotation = Quaternion.Euler(0, 0, Random.Range(0f, 360f));
         transform.rotation = Quaternion.identity;
@@ -26,6 +24,8 @@ public class MoveToTargetAgent : Agent
 
     public override void CollectObservations(VectorSensor sensor)
     {
+        Debug.Log($"[CollectObservations] AgentPos; {transform.localPosition}, TargetPos; {target.localPosition}");
+
         sensor.AddObservation((Vector2)transform.position);
         sensor.AddObservation((Vector2)target.position);
     }
@@ -35,9 +35,12 @@ public class MoveToTargetAgent : Agent
         float moveX = actions.ContinuousActions[0];
         float moveY = actions.ContinuousActions[1];
 
+        Debug.Log($"Action recieved; moveX = {moveX}, moveY = {moveY}");
+
         float movementSpeed = 5f;
 
         transform.position += new Vector3(moveX, moveY) * Time.deltaTime * movementSpeed;
+
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)

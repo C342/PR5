@@ -504,11 +504,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &628917051 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6047902016021755564, guid: 0013a26eddb5ac3409b852846e65c27d, type: 3}
-  m_PrefabInstance: {fileID: 1935616408}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1625960764
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -639,29 +634,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4103855067872164268, guid: 0013a26eddb5ac3409b852846e65c27d, type: 3}
-      propertyPath: m_GravityScale
+    - target: {fileID: 1639375485202416044, guid: 0013a26eddb5ac3409b852846e65c27d, type: 3}
+      propertyPath: MaxStep
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4490804977467575892, guid: 0013a26eddb5ac3409b852846e65c27d, type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 628917051}
+      propertyPath: MaxStep
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4588099668308895882, guid: 0013a26eddb5ac3409b852846e65c27d, type: 3}
       propertyPath: m_BehaviorType
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4588099668308895882, guid: 0013a26eddb5ac3409b852846e65c27d, type: 3}
-      propertyPath: m_BrainParameters.VectorObservationSize
-      value: 4
+      propertyPath: m_BrainParameters.NumStackedVectorObservations
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4928308631656386825, guid: 0013a26eddb5ac3409b852846e65c27d, type: 3}
       propertyPath: m_Name
       value: env
-      objectReference: {fileID: 0}
-    - target: {fileID: 6891101815020383845, guid: 0013a26eddb5ac3409b852846e65c27d, type: 3}
-      propertyPath: m_Name
-      value: Walls
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

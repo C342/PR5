@@ -10,6 +10,8 @@ using UnityEngine;
 /// </summary>
 public class HummingbirdAgent : Agent
 {
+    Rigidbody rb;
+
     [Tooltip("Force to apply when moving")]
     public float moveForce = 2f;
 
@@ -84,8 +86,8 @@ public class HummingbirdAgent : Agent
         NectarObtained = 0f;
 
         // Zero out velocities so that movement stops before a new episode begins
-        rigidbody.linearVelocity = Vector3.zero;
-        rigidbody.angularVelocity = Vector3.zero;
+        rb.linearVelocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
 
         // Default to spawning in front of a flower
         bool inFrontOfFlower = true;

@@ -84,7 +84,7 @@ public class HummingbirdAgent : Agent
         NectarObtained = 0f;
 
         // Zero out velocities so that movement stops before a new episode begins
-        rigidbody.velocity = Vector3.zero;
+        rigidbody.linearVelocity = Vector3.zero;
         rigidbody.angularVelocity = Vector3.zero;
 
         // Default to spawning in front of a flower
@@ -113,7 +113,7 @@ public class HummingbirdAgent : Agent
     /// Index 4: yaw angle (+1 = turn right, -1 = turn left)
     /// </summary>
     /// <param name="vectorAction">The actions to take</param>
-    public override void OnActionReceived(float[] vectorAction)
+    public void OnActionReceived(float[] vectorAction)
     {
         // Don't take actions if frozen
         if (frozen) return;
@@ -189,7 +189,7 @@ public class HummingbirdAgent : Agent
     /// <see cref="OnActionReceived(float[])"/> instead of using the neural network
     /// </summary>
     /// <param name="actionsOut">And output action array</param>
-    public override void Heuristic(float[] actionsOut)
+    public void Heuristic(float[] actionsOut)
     {
         // Create placeholders for all movement/turning
         Vector3 forward = Vector3.zero;

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Unity.MLAgents;
+using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
 using UnityEngine;
 
@@ -97,11 +98,13 @@ public class HummingbirdAgent : Agent
         sensor.AddObservation(toFlower.magnitude / FlowerArea.AreaDiameter);
     }
 
-    public void Heuristic(float[] actionsOut)
+    public override void Heuristic(in ActionBuffers actionsOut)
     {
+        var ContinuousActions = actionsOut.ContinuousActions;
+
         Vector3 forward = Vector3.zero;
-        Vector3 left = Vector3.zero;
         Vector3 up = Vector3.zero;
+        Vector3 left = Vector3.zero;
         float pitch = 0f;
         float yaw = 0f;
 
@@ -111,8 +114,8 @@ public class HummingbirdAgent : Agent
         if (Input.GetKey(KeyCode.A)) left = -transform.right;
         else if (Input.GetKey(KeyCode.D)) left = transform.right;
 
-        if (Input.GetKey(KeyCode.LeftShift)) up = transform.up;
-        else if (Input.GetKey(KeyCode.LeftControl)) up = -transform.up;
+        if (Input.GetKey(KeyCode.E)) up = transform.up;
+        else if (Input.GetKey(KeyCode.Q)) up = -transform.up;
 
         if (Input.GetKey(KeyCode.UpArrow)) pitch = 1f;
         else if (Input.GetKey(KeyCode.DownArrow)) pitch = -1f;
@@ -122,11 +125,12 @@ public class HummingbirdAgent : Agent
 
         Vector3 combined = (forward + left + up).normalized;
 
-        actionsOut[0] = combined.x;
-        actionsOut[1] = combined.y;
-        actionsOut[2] = combined.z;
-        actionsOut[3] = pitch;
-        actionsOut[4] = yaw;
+        ContinuousActions[0] = combined.x;
+        ContinuousActions[1] = combined.y;
+        ContinuousActions[2] = combined.z;
+        ContinuousActions[3] = pitch;
+        ContinuousActions[4] = yaw;
+
     }
 
     public void FreezeAgent()

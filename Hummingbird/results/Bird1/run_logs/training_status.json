@@ -14,15 +14,42 @@
                 "auxillary_file_paths": [
                     "results\\Bird1\\Hummingbird\\Hummingbird-44000.pt"
                 ]
+            },
+            {
+                "steps": 65600,
+                "file_path": "results\\Bird1\\Hummingbird\\Hummingbird-65600.onnx",
+                "reward": null,
+                "creation_time": 1759412835.618138,
+                "auxillary_file_paths": [
+                    "results\\Bird1\\Hummingbird\\Hummingbird-65600.pt"
+                ]
+            },
+            {
+                "steps": 65600,
+                "file_path": "results\\Bird1\\Hummingbird\\Hummingbird-65600.onnx",
+                "reward": null,
+                "creation_time": 1759413077.9968135,
+                "auxillary_file_paths": [
+                    "results\\Bird1\\Hummingbird\\Hummingbird-65600.pt"
+                ]
+            },
+            {
+                "steps": 65600,
+                "file_path": "results\\Bird1\\Hummingbird\\Hummingbird-65600.onnx",
+                "reward": null,
+                "creation_time": 1759415411.3857422,
+                "auxillary_file_paths": [
+                    "results\\Bird1\\Hummingbird\\Hummingbird-65600.pt"
+                ]
             }
         ],
         "final_checkpoint": {
-            "steps": 44000,
+            "steps": 65600,
             "file_path": "results\\Bird1\\Hummingbird.onnx",
-            "reward": 0.0,
-            "creation_time": 1759412485.4688108,
+            "reward": null,
+            "creation_time": 1759415411.3857422,
             "auxillary_file_paths": [
-                "results\\Bird1\\Hummingbird\\Hummingbird-44000.pt"
+                "results\\Bird1\\Hummingbird\\Hummingbird-65600.pt"
             ]
         }
     }

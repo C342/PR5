@@ -111,8 +111,8 @@ public class HummingbirdAgent : Agent
         if (Input.GetKey(KeyCode.A)) left = -transform.right;
         else if (Input.GetKey(KeyCode.D)) left = transform.right;
 
-        if (Input.GetKey(KeyCode.E)) up = transform.up;
-        else if (Input.GetKey(KeyCode.C)) up = -transform.up;
+        if (Input.GetKey(KeyCode.LeftShift)) up = transform.up;
+        else if (Input.GetKey(KeyCode.LeftControl)) up = -transform.up;
 
         if (Input.GetKey(KeyCode.UpArrow)) pitch = 1f;
         else if (Input.GetKey(KeyCode.DownArrow)) pitch = -1f;

@@ -5,7 +5,7 @@ using System;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
 
-public class HummingbirdAgent : Agent
+public class  HummingbirdAgent : Agent
 {
     [Tooltip("Force to apply when moving")]
     public float moveForce = 2f;
@@ -104,25 +104,45 @@ public class HummingbirdAgent : Agent
 
     public override void CollectObservations(VectorSensor sensor)
     {
+        // Agent’s rotation (Quaternion = 4 values)
+        sensor.AddObservation(transform.localRotation.normalized);
 
         if (nearestFlower == null)
         {
-            sensor.AddObservation(new float[10]);
+            // If no flower, pad with zeros (42 remaining values)
+            sensor.AddObservation(new float[42]);
             return;
         }
 
-        sensor.AddObservation(transform.localRotation.normalized);
-
+        // --- Nearest flower details ---
         Vector3 toFlower = nearestFlower.FlowerCenterPosition - beakTip.position;
 
+        // Direction to flower (3 values)
         sensor.AddObservation(toFlower.normalized);
 
+        // Dot product: beak facing flower (1 value)
         sensor.AddObservation(Vector3.Dot(toFlower.normalized, -nearestFlower.FlowerUpVector));
 
+        // Dot product: beak tip facing correct direction (1 value)
         sensor.AddObservation(Vector3.Dot(beakTip.forward.normalized, -nearestFlower.FlowerUpVector.normalized));
 
+        // Distance to flower (1 value)
         sensor.AddObservation(toFlower.magnitude / FlowerArea.AreaDiameter);
 
+        // --- All flowers in the FlowerArea ---
+        foreach (Flower flower in flowerArea.Flowers)
+        {
+            Vector3 toOtherFlower = flower.FlowerCenterPosition - beakTip.position;
+
+            // Direction to flower (3 values)
+            sensor.AddObservation(toOtherFlower.normalized);
+
+            // Distance to flower (1 value)
+            sensor.AddObservation(toOtherFlower.magnitude / FlowerArea.AreaDiameter);
+
+            // Nectar availability (1 value)
+            sensor.AddObservation(flower.HasNectar ? 1f : 0f);
+        }
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)

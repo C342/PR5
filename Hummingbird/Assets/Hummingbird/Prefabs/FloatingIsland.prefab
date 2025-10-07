@@ -6887,7 +6887,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hummingbird
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2307836255815544019, guid: ee5d7605796823e44b0821e269dced5d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

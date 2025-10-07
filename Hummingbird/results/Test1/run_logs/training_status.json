@@ -2,31 +2,40 @@
     "Hummingbird": {
         "checkpoints": [
             {
-                "steps": 6159,
-                "file_path": "results\\Test1\\Hummingbird\\Hummingbird-6159.onnx",
+                "steps": 10063,
+                "file_path": "results\\Test1\\Hummingbird\\Hummingbird-10063.onnx",
                 "reward": 0.0,
-                "creation_time": 1759486726.7280955,
+                "creation_time": 1759834832.8387487,
                 "auxillary_file_paths": [
-                    "results\\Test1\\Hummingbird\\Hummingbird-6159.pt"
+                    "results\\Test1\\Hummingbird\\Hummingbird-10063.pt"
                 ]
             },
             {
-                "steps": 45135,
-                "file_path": "results\\Test1\\Hummingbird\\Hummingbird-45135.onnx",
-                "reward": null,
-                "creation_time": 1759487327.7696695,
+                "steps": 42825,
+                "file_path": "results\\Test1\\Hummingbird\\Hummingbird-42825.onnx",
+                "reward": 0.0,
+                "creation_time": 1759835158.271792,
                 "auxillary_file_paths": [
-                    "results\\Test1\\Hummingbird\\Hummingbird-45135.pt"
+                    "results\\Test1\\Hummingbird\\Hummingbird-42825.pt"
+                ]
+            },
+            {
+                "steps": 94893,
+                "file_path": "results\\Test1\\Hummingbird\\Hummingbird-94893.onnx",
+                "reward": 0.0,
+                "creation_time": 1759835821.383633,
+                "auxillary_file_paths": [
+                    "results\\Test1\\Hummingbird\\Hummingbird-94893.pt"
                 ]
             }
         ],
         "final_checkpoint": {
-            "steps": 45135,
+            "steps": 94893,
             "file_path": "results\\Test1\\Hummingbird.onnx",
-            "reward": null,
-            "creation_time": 1759487327.7696695,
+            "reward": 0.0,
+            "creation_time": 1759835821.383633,
             "auxillary_file_paths": [
-                "results\\Test1\\Hummingbird\\Hummingbird-45135.pt"
+                "results\\Test1\\Hummingbird\\Hummingbird-94893.pt"
             ]
         }
     },

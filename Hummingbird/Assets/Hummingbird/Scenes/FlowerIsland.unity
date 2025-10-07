@@ -616,6 +616,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 115809580}
     m_Modifications:
+    - target: {fileID: 667204979936367788, guid: ee5d7605796823e44b0821e269dced5d, type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3803140178010097290, guid: ee5d7605796823e44b0821e269dced5d, type: 3}
       propertyPath: field of view
       value: 60.000004
@@ -674,7 +678,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7904377349331392322, guid: ee5d7605796823e44b0821e269dced5d, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8005050037668528862, guid: ee5d7605796823e44b0821e269dced5d, type: 3}
       propertyPath: m_Name
@@ -777,7 +781,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: 5f462911c42fc2043a514e2f88c2d2e4, type: 3}
+  m_Model: {fileID: 5022602860645237092, guid: ac05c80dcc63e05419fade8f234bc7e1, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 2
   m_BehaviorName: Hummingbird

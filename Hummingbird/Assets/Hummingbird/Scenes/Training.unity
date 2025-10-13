@@ -363,7 +363,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8005050037668528862, guid: ee5d7605796823e44b0821e269dced5d, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6646747947445836691, guid: ee5d7605796823e44b0821e269dced5d, type: 3}
@@ -882,7 +882,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 0
+  MaxStep: 5000
   moveForce: 2
   pitchSpeed: 100
   yawSpeed: 100
@@ -913,7 +913,7 @@ MonoBehaviour:
     hasUpgradedBrainParametersWithActionSpec: 1
   m_Model: {fileID: 5022602860645237092, guid: 5f462911c42fc2043a514e2f88c2d2e4, type: 3}
   m_InferenceDevice: 0
-  m_BehaviorType: 2
+  m_BehaviorType: 0
   m_BehaviorName: Hummingbird
   TeamId: 0
   m_UseChildSensors: 1

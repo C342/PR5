@@ -348,41 +348,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7191739622581762593, guid: 0b72ebb04d7089e4380c79ea8a50e850, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 448703894259934140}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b72ebb04d7089e4380c79ea8a50e850, type: 3}
---- !u!1 &448703894259934128 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7191739622581762593, guid: 0b72ebb04d7089e4380c79ea8a50e850, type: 3}
-  m_PrefabInstance: {fileID: 448703894259934127}
-  m_PrefabAsset: {fileID: 0}
---- !u!143 &448703894259934140
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 448703894259934128}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Height: 2
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1183258967702202343
 PrefabInstance:
   m_ObjectHideFlags: 0

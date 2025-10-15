@@ -150,6 +150,7 @@ GameObject:
   - component: {fileID: 5054637822738528720}
   - component: {fileID: 8262290690316679646}
   - component: {fileID: 693339644486124311}
+  - component: {fileID: 2693640710500623770}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -274,5 +275,22 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 64
   m_CollisionDetection: 0
+--- !u!114 &2693640710500623770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7191739622581762593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ca586abe80acb847883bb602f0d7da0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkSpeed: 5
+  sprintSpeed: 10
+  smoothing: 10
+  cameraTransform: {fileID: 3256245875942295197}
+  mouseSensitivity: 400

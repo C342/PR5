@@ -1,77 +1,88 @@
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.Scripting.APIUpdating;
 
-public class PlayerMovement : MonoBehaviour
+public class First_Person_Movement : MonoBehaviour
 {
+    private Vector3 Velocity;
+    private Vector3 PlayerMovementInput;
+    private Vector2 PlayerMouseInput;
+    private bool Sneaking = false;
+    private float xRotation;
+
+    [Header("Components")]
+    [SerializeField] private Transform PlayerCamera;
+    [SerializeField] private CharacterController Controller;
+    [SerializeField] private Transform Player;
+    [Space]
     [Header("Movement Settings")]
-    public float walkSpeed = 5f;
-    public float sprintSpeed = 10f;
-    public float smoothing = 10f;
+    [SerializeField] private float Speed;
+    [SerializeField] private float JumpForce;
+    [SerializeField] private float LookSensitivity;
+    [SerializeField] private float Gravity = 9.81f;
+    [Space]
+    [Header("Crouching")]
+    [SerializeField] private bool Crouch = false;
+    [SerializeField] private float CrouchSpeed;
 
-    public Transform cameraTransform;
-
-    private CharacterController controller;
-    private Vector3 currentVelocity = Vector3.zero;
-    private float xRotation = 0f;
-
-    [Header("Mouse Look Settings")]
-    public float mouseSensitivity = 100f;
-
-    private void Start()
+    void Start()
     {
-        controller = GetComponent<CharacterController>();
-        if (controller == null)
-        {
-            Debug.LogError("PlayerMovement requires a CharacterController component!");
-        }
-
         Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update()
     {
-        HandleMouseLook();
-        HandleMovement();
-    }
 
-    void HandleMovement()
-    {
-        float moveX = Input.GetAxis("Horizontal");
-        float moveZ = Input.GetAxis("Vertical");
+        PlayerMovementInput = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
+        PlayerMouseInput = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
 
-        Vector3 input = new Vector3(moveX, 0f, moveZ).normalized;
+        MovePlayer();
+        MoveCamera();
 
-        if (input.magnitude >= 0.1f)
+        if (Input.GetKey(KeyCode.LeftControl) && Crouch)
         {
-            float targetSpeed = Input.GetKey(KeyCode.LeftShift) ? sprintSpeed : walkSpeed;
-
-            Vector3 camForward = cameraTransform.forward;
-            Vector3 camRight = cameraTransform.right;
-            camForward.y = 0f;
-            camRight.y = 0f;
-            camForward.Normalize();
-            camRight.Normalize();
-
-            Vector3 moveDir = camForward * input.z + camRight * input.x;
-            Vector3 targetVelocity = moveDir * targetSpeed;
-
-            currentVelocity = Vector3.Lerp(currentVelocity, targetVelocity, smoothing * Time.deltaTime);
-
-            controller.Move(currentVelocity * Time.deltaTime);
+            Player.localScale = new Vector3(1f, 0.5f, 1f);
+            Sneaking = true;
+        }
+        if (Input.GetKeyUp(KeyCode.LeftControl))
+        {
+            Player.localScale = new Vector3(1f, 1f, 1f);
+            Sneaking = false;
         }
     }
-
-    void HandleMouseLook()
+    private void MovePlayer()
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+        Vector3 MoveVector = transform.TransformDirection(PlayerMovementInput);
 
-        transform.Rotate(Vector3.up * mouseX);
 
-        xRotation -= mouseY;
+        if (Controller.isGrounded)
+        {
+            Velocity.y = -1f;
+
+            if (Input.GetKeyDown(KeyCode.Space) && Sneaking == false)
+            {
+                Velocity.y = JumpForce;
+            }
+        }
+        else
+        {
+            Velocity.y += Gravity * -2f * Time.deltaTime;
+        }
+        if (Sneaking)
+        {
+            Controller.Move(MoveVector * CrouchSpeed * Time.deltaTime);
+        }
+        else
+        {
+            Controller.Move(MoveVector * Speed * Time.deltaTime);
+        }
+        Controller.Move(Velocity * Time.deltaTime);
+
+    }
+    private void MoveCamera()
+    {
+        xRotation -= PlayerMouseInput.y * LookSensitivity;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        cameraTransform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        transform.Rotate(0f, PlayerMouseInput.x * LookSensitivity, 0f);
+        PlayerCamera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
     }
 }

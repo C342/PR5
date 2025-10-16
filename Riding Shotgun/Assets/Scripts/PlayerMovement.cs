@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class First_Person_Movement : MonoBehaviour
@@ -17,10 +18,11 @@ public class First_Person_Movement : MonoBehaviour
     [SerializeField] private float Speed;
     [SerializeField] private float JumpForce;
     [SerializeField] private float LookSensitivity;
+    [SerializeField] public float Smoothing = 10f;
     [SerializeField] private float Gravity = 9.81f;
     [Space]
     [Header("Crouching")]
-    [SerializeField] private bool Crouch = false;
+    [SerializeField] private bool Crouch = true;
     [SerializeField] private float CrouchSpeed;
 
     void Start()
@@ -52,6 +54,7 @@ public class First_Person_Movement : MonoBehaviour
     {
         Vector3 MoveVector = transform.TransformDirection(PlayerMovementInput);
 
+        MoveVector = Vector3.Lerp(Vector3.zero, MoveVector, 10f * Time.deltaTime);
 
         if (Controller.isGrounded)
         {

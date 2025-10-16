@@ -430,12 +430,16 @@ PrefabInstance:
       value: 7.5
       objectReference: {fileID: 0}
     - target: {fileID: 2693640710500623770, guid: 0b72ebb04d7089e4380c79ea8a50e850, type: 3}
+      propertyPath: Crouch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2693640710500623770, guid: 0b72ebb04d7089e4380c79ea8a50e850, type: 3}
       propertyPath: Player
       value: 
       objectReference: {fileID: 1604691942}
     - target: {fileID: 2693640710500623770, guid: 0b72ebb04d7089e4380c79ea8a50e850, type: 3}
       propertyPath: JumpForce
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2693640710500623770, guid: 0b72ebb04d7089e4380c79ea8a50e850, type: 3}
       propertyPath: MoveSpeed

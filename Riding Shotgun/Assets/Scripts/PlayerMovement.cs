@@ -6,6 +6,7 @@ public class First_Person_Movement : MonoBehaviour
     private Vector3 Velocity;
     private Vector3 PlayerMovementInput;
     private Vector2 PlayerMouseInput;
+    private Vector3 smoothMoveVector;
     private bool Sneaking = false;
     private float xRotation;
 
@@ -54,7 +55,8 @@ public class First_Person_Movement : MonoBehaviour
     {
         Vector3 MoveVector = transform.TransformDirection(PlayerMovementInput);
 
-        MoveVector = Vector3.Lerp(Vector3.zero, MoveVector, 10f * Time.deltaTime);
+        smoothMoveVector = Vector3.Lerp(smoothMoveVector, transform.TransformDirection(PlayerMovementInput), 10f * Time.deltaTime);
+        MoveVector = smoothMoveVector;
 
         if (Controller.isGrounded)
         {

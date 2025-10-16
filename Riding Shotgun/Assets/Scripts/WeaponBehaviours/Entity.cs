@@ -9,12 +9,12 @@ public class Entity : MonoBehaviour
     {
         get
         {
-            return Health;
+            return health;
         }
         set
         {
-            health = value;
-            Debug.Log(Health);
+            health = Mathf.Max(0, value);
+            Debug.Log(health);
 
             if (health <= 0f)
             {

@@ -8,7 +8,9 @@ public class Knockback : MonoBehaviour
     [SerializeField] private float cooldownTime = 0.5f;
     [SerializeField] private float knockbackDecay = 5f;
 
+    [SerializeField] private Transform playerCamera;
     private CharacterController controller;
+
     private Vector3 knockbackVelocity = Vector3.zero;
     private bool isOnCooldown = false;
     private float cooldownTimer = 0f;
@@ -16,6 +18,9 @@ public class Knockback : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
+
+        if (playerCamera == null && Camera.main != null)
+            playerCamera = Camera.main.transform;
     }
 
     void Update()
@@ -43,11 +48,17 @@ public class Knockback : MonoBehaviour
 
     private void FireShotgun()
     {
-        Vector3 knockbackDir = -transform.forward.normalized;
+        if (playerCamera == null)
+        {
+            Debug.LogWarning("Player Camera not assigned to Knockback script!");
+            return;
+        }
+
+        Vector3 knockbackDir = -playerCamera.forward.normalized;
 
         knockbackVelocity = knockbackDir * knockbackForce;
 
-        Debug.DrawRay(transform.position, knockbackDir * 2, Color.red, 1f);
+        Debug.DrawRay(transform.position, knockbackDir * 2f, Color.red, 1f);
     }
 
     private void StartCooldown()

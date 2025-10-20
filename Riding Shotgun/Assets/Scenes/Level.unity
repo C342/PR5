@@ -762,6 +762,26 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &1106372074 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7191739622581762593, guid: 0b72ebb04d7089e4380c79ea8a50e850, type: 3}
+  m_PrefabInstance: {fileID: 448703894259934127}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1106372082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106372074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56fea52e74b792746b56f38370b75b5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knockbackForce: 15
+  cooldownTime: 3
+  knockbackDecay: 5
 --- !u!1 &1187906487
 GameObject:
   m_ObjectHideFlags: 0
@@ -929,6 +949,10 @@ PrefabInstance:
     - target: {fileID: 510095667397156312, guid: 0b72ebb04d7089e4380c79ea8a50e850, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 693339644486124311, guid: 0b72ebb04d7089e4380c79ea8a50e850, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3739397230456039887, guid: 0b72ebb04d7089e4380c79ea8a50e850, type: 3}
       propertyPath: Damage
@@ -1145,6 +1169,9 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 74251816}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7191739622581762593, guid: 0b72ebb04d7089e4380c79ea8a50e850, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1106372082}
     - targetCorrespondingSourceObject: {fileID: 6376536914060716056, guid: 0b72ebb04d7089e4380c79ea8a50e850, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1051735920}

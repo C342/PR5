@@ -795,7 +795,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56fea52e74b792746b56f38370b75b5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockbackForce: 20
+  knockbackForce: 25
   cooldownTime: 3
   knockbackDecay: 5
   playerCamera: {fileID: 1159467443}

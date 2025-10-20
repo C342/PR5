@@ -14,7 +14,6 @@ public class Entity : MonoBehaviour
         set
         {
             health = Mathf.Max(0, value);
-            Debug.Log(health);
 
             if (health <= 0f)
             {

@@ -762,6 +762,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1051735921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1051735916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 374a244dfd82a4e469c54451a5bdd5c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetTransform: {fileID: 1159467443}
+  PositionOffset: {x: 0.9, y: -0.25, z: -0.1}
+  FollowSmoothness: 10
+  RotationSmoothness: 15
 --- !u!1 &1106372074 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7191739622581762593, guid: 0b72ebb04d7089e4380c79ea8a50e850, type: 3}
@@ -779,9 +795,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56fea52e74b792746b56f38370b75b5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockbackForce: 15
+  knockbackForce: 20
   cooldownTime: 3
   knockbackDecay: 5
+--- !u!4 &1159467443 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3256245875942295197, guid: 0b72ebb04d7089e4380c79ea8a50e850, type: 3}
+  m_PrefabInstance: {fileID: 448703894259934127}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1187906487
 GameObject:
   m_ObjectHideFlags: 0
@@ -1175,6 +1196,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6376536914060716056, guid: 0b72ebb04d7089e4380c79ea8a50e850, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1051735920}
+    - targetCorrespondingSourceObject: {fileID: 6376536914060716056, guid: 0b72ebb04d7089e4380c79ea8a50e850, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1051735921}
     - targetCorrespondingSourceObject: {fileID: 8337201404395821954, guid: 0b72ebb04d7089e4380c79ea8a50e850, type: 3}
       insertIndex: -1
       addedObject: {fileID: 448703894259934131}

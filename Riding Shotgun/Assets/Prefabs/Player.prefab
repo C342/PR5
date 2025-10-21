@@ -185,6 +185,7 @@ GameObject:
   - component: {fileID: 2693640710500623770}
   - component: {fileID: 4589339392721456666}
   - component: {fileID: 6529191284580768040}
+  - component: {fileID: 6316677955688890521}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -376,6 +377,18 @@ MonoBehaviour:
   cooldownTime: 3
   knockbackDecay: 5
   playerCamera: {fileID: 3256245875942295197}
+--- !u!114 &6316677955688890521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7191739622581762593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb081bea5e63e914c9de5de27a4f85ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7820875793948140246
 GameObject:
   m_ObjectHideFlags: 0

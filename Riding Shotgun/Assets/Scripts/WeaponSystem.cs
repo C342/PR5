@@ -1,9 +1,13 @@
+using System.Collections;
 using System.Runtime.CompilerServices;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class WeaponSystem : MonoBehaviour
 {
+    [SerializeField] private TextMeshProUGUI reloadText;
+
     public UnityEvent OnWeaponShoot;
     public float ShootCooldown;
 
@@ -13,7 +17,11 @@ public class NewMonoBehaviourScript : MonoBehaviour
 
     private void Start()
     {
-        CurrentCooldown = ShootCooldown;
+        CurrentCooldown = 0f;
+        if (reloadText != null)
+        {
+            reloadText.text = "1 / 1";
+        }
     }
 
     private void Update()
@@ -26,6 +34,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
                 {
                     OnWeaponShoot?.Invoke();
                     CurrentCooldown = ShootCooldown;
+                    ReloadTimer();
                 }
             }
         }
@@ -37,10 +46,31 @@ public class NewMonoBehaviourScript : MonoBehaviour
                 {
                     OnWeaponShoot?.Invoke();
                     CurrentCooldown = ShootCooldown;
+                    ReloadTimer();
                 }
             }
         }
 
         CurrentCooldown -= Time.deltaTime;
+    }
+
+    public void ReloadTimer()
+    {
+        StartCoroutine(ReloadRoutine());
+    }
+
+    private IEnumerator ReloadRoutine()
+    {
+        if (reloadText != null)
+        {
+            reloadText.text = "0 / 1";
+        }
+
+        yield return new WaitForSeconds(3f);
+
+        if (reloadText != null)
+        {
+            reloadText.text = "1 / 1";
+        }
     }
 }

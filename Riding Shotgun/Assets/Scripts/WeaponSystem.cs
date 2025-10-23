@@ -3,6 +3,7 @@ using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Rendering;
 
 public class WeaponSystem : MonoBehaviour
 {
@@ -12,6 +13,12 @@ public class WeaponSystem : MonoBehaviour
     public float ShootCooldown;
 
     public bool Automatic;
+
+    public float SpreadAngle = 5f;
+    public bool ProgressiveSpread = false;
+    public float MaxSpread = 15f;
+    public float SpreadIncreasePerShot = 1f;
+    public float SpreadRecoverySpeed = 5f;
 
     private float CurrentCooldown;
 

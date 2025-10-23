@@ -54,8 +54,11 @@ public class Enemy : MonoBehaviour
         GameObject Bullet = Instantiate(bulletObject, spawn.position, Quaternion.LookRotation(direction));
         Rigidbody rb = Bullet.GetComponent<Rigidbody>();
 
-        rb.linearVelocity = direction * shootSpeed;
-        rb.angularVelocity = Vector3.zero;
+        if (rb != null)
+        {
+            rb.linearVelocity = direction * shootSpeed;
+            rb.angularVelocity = Vector3.zero;
+        }
 
         Destroy(Bullet, 3f);
 

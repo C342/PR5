@@ -14,12 +14,6 @@ public class WeaponSystem : MonoBehaviour
 
     public bool Automatic;
 
-    public float SpreadAngle = 5f;
-    public bool ProgressiveSpread = false;
-    public float MaxSpread = 15f;
-    public float SpreadIncreasePerShot = 1f;
-    public float SpreadRecoverySpeed = 5f;
-
     private float CurrentCooldown;
 
     private void Start()

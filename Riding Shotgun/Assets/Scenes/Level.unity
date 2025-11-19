@@ -5200,6 +5200,7 @@ MonoBehaviour:
   targetHealth: {fileID: 1436496491}
   healthSlider: {fileID: 1409499669}
   fillImage: {fileID: 1409499667}
+  slideSpeed: 10
   fullHealthColor: {r: 0, g: 1, b: 0, a: 1}
   lowHealthColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1001 &2093851359

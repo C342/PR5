@@ -8,6 +8,9 @@ public class HealthBarController : MonoBehaviour
     [SerializeField] private Slider healthSlider;
     [SerializeField] private Image fillImage;
 
+    [Header("Settings")]
+    [SerializeField] private float slideSpeed = 10f;
+
     [Header("Color Settings")]
     [SerializeField] private Color fullHealthColor = Color.green;
     [SerializeField] private Color lowHealthColor = Color.red;
@@ -22,12 +25,20 @@ public class HealthBarController : MonoBehaviour
             targetHealth = GetComponent<Health>();
         }
 
-        if (targetHealth != null && healthSlider != null)
+        if (targetHealth == null)
+        {
+            Debug.LogWarning($"{name}: No Health component found! Health bar cannot function!");
+            enabled = false;
+            return;
+        }
+
+        if (healthSlider != null)
         {
             healthSlider.maxValue = targetHealth.MaxHealth;
-            healthSlider.value = targetHealth.CurrentHealth;
-            displayedHealth = targetHealth.CurrentHealth;
+            healthSlider.minValue = targetHealth.CurrentHealth;
         }
+
+        displayedHealth = targetHealth.CurrentHealth;
     }
 
     private void Update()
@@ -37,9 +48,10 @@ public class HealthBarController : MonoBehaviour
 
         float targetValue = targetHealth.CurrentHealth;
 
-        displayedHealth = Mathf.Lerp(displayedHealth, targetValue, Time.deltaTime * 10f);
+        displayedHealth = Mathf.Lerp(displayedHealth, targetValue, Time.deltaTime * slideSpeed);
         healthSlider.value = displayedHealth;
 
+        float percent = displayedHealth / targetHealth.MaxHealth;
         UpdateHealthColor(displayedHealth / targetHealth.MaxHealth);
     }
 
